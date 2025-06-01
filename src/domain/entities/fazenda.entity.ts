@@ -1,15 +1,12 @@
-import { SafraEntity } from './safra.entity';
-
-export class FazendaEntity {
+export class Fazenda {
   constructor(
     public id: string,
-    public name: string,
-    public city: string,
-    public state: string,
-    public totalArea: number,
-    public agriculturalArea: number,
-    public vegetationArea: number,
-    public farmerId: string,
-    public harvests: SafraEntity[] = [],
+    public nome: string,
+    public cidade: string,
+    public estado: string,
+    public areaTotal: number,
+    public areaAgricultavel: number,
+    public areaVegetacao: number,
+    public agricultorId: string,
   ) {}
 }
