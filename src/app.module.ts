@@ -23,7 +23,14 @@ import { AgricultorOrmEntity } from '@Infrastructure/typeorm/models/agricultor.m
 import { CulturaOrmEntity } from '@Infrastructure/typeorm/models/cultura.model';
 import { FazendaOrmEntity } from '@Infrastructure/typeorm/models/fazenda.model';
 import { SafraOrmEntity } from '@Infrastructure/typeorm/models/safra.model';
+import { AgricultorSeeder } from '@Infrastructure/typeorm/seed/agricultor.seeder';
+import { CulturaSeeder } from '@Infrastructure/typeorm/seed/cultura.seeder';
+import { FazendaSeeder } from '@Infrastructure/typeorm/seed/fazenda.seeder';
+import { SafraSeeder } from '@Infrastructure/typeorm/seed/safra.seeder';
+import { SeederProvider } from '@Infrastructure/typeorm/seed/seeder.provider';
+import { EnvironmentVariableModule } from '@Shared/config/environment-variable/environment-variable.module';
 import { Module } from '@nestjs/common';
+import { TerminusModule } from '@nestjs/terminus';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AgricultorController } from './presentation/controllers/agricultor.controller';
 import { CulturaController } from './presentation/controllers/cultura.controller';
@@ -31,6 +38,7 @@ import { FazendaController } from './presentation/controllers/fazenda.controller
 import { SafraController } from './presentation/controllers/safra.controller';
 
 @Module({
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   imports: [
     TypeOrmModule.forRootAsync({
       useClass: PostgresConfigService,
@@ -42,6 +50,9 @@ import { SafraController } from './presentation/controllers/safra.controller';
       CulturaOrmEntity,
       SafraOrmEntity,
     ]),
+
+    EnvironmentVariableModule.forRoot({ isGlobal: true }),
+    TerminusModule,
   ],
   controllers: [
     AgricultorController,
@@ -50,6 +61,11 @@ import { SafraController } from './presentation/controllers/safra.controller';
     SafraController,
   ],
   providers: [
+    AgricultorSeeder,
+    CulturaSeeder,
+    FazendaSeeder,
+    SafraSeeder,
+    SeederProvider,
     AgricultorRepositoryImplt,
     FazendaRepositoryImplt,
     CulturaRepositoryImplt,
