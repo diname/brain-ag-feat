@@ -35,7 +35,7 @@ export class FazendaRepositoryImplt implements FazendaRepository {
     return result ? FazendaMapper.toDomain(result) : null;
   }
 
-  async buscarTodos(): Promise<Fazenda[]> {
+  async buscar(): Promise<Fazenda[]> {
     const results = await this.ormRepo.find();
     return results.map((result) => FazendaMapper.toDomain(result));
   }

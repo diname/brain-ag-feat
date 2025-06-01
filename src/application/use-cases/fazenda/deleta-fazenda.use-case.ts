@@ -1,4 +1,3 @@
-// remover-fazenda.use-case.ts
 import { FazendaRepository } from '@Domain/repositories/fazenda.repository';
 import { Injectable } from '@nestjs/common';
 

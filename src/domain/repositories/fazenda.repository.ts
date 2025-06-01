@@ -5,5 +5,5 @@ export interface FazendaRepository {
   atualizar(fazenda: Fazenda): Promise<Fazenda>;
   remover(id: string): Promise<void>;
   buscarPorId(id: string): Promise<Fazenda | null>;
-  buscarTodos(): Promise<Fazenda[]>;
+  buscar(): Promise<Fazenda[]>;
 }

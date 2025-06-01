@@ -35,7 +35,7 @@ export class CulturaRepositoryImplt implements CulturaRepository {
     return result ? CulturaMapper.toDomain(result) : null;
   }
 
-  async buscarTodos(): Promise<Cultura[]> {
+  async buscar(): Promise<Cultura[]> {
     const results = await this.ormRepo.find();
     return results.map((result) => CulturaMapper.toDomain(result));
   }

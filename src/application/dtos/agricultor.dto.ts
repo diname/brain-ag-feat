@@ -1,9 +1,9 @@
 import { ApiProperty } from '@nestjs/swagger';
 import { IsNotEmpty, IsString, Matches } from 'class-validator';
 
-export class ProdutorDto {
+export class AgricultorDto {
   @ApiProperty({
-    description: 'Documento do produtor (CPF ou CNPJ)',
+    description: 'Documento do agricultor (CPF ou CNPJ)',
     example: '12345678901',
     required: true,
   })
@@ -15,7 +15,7 @@ export class ProdutorDto {
   document: string;
 
   @ApiProperty({
-    description: 'Nome do produtor',
+    description: 'Nome do agricultor',
     example: 'João da Silva',
     required: true,
   })

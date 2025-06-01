@@ -7,6 +7,6 @@ export class BuscarTodosAgricultoresUseCase {
   constructor(private readonly repo: AgricultorRepository) {}
 
   async execute(): Promise<Agricultor[]> {
-    return await this.repo.buscarTodos();
+    return await this.repo.buscar();
   }
 }

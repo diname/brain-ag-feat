@@ -5,5 +5,5 @@ export interface AgricultorRepository {
   atualizar(agricultor: Agricultor): Promise<Agricultor>;
   remover(id: string): Promise<void>;
   buscarPorId(id: string): Promise<Agricultor | null>;
-  buscarTodos(): Promise<Agricultor[]>;
+  buscar(): Promise<Agricultor[]>;
 }

@@ -5,5 +5,5 @@ export interface CulturaRepository {
   atualizar(cultura: Cultura): Promise<Cultura>;
   remover(id: string): Promise<void>;
   buscarPorId(id: string): Promise<Cultura | null>;
-  buscarTodos(): Promise<Cultura[]>;
+  buscar(): Promise<Cultura[]>;
 }

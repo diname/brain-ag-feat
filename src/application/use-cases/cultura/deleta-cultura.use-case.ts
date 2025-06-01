@@ -1,4 +1,3 @@
-// remover-cultura.use-case.ts
 import { CulturaRepository } from '@Domain/repositories/cultura.repository';
 import { Injectable } from '@nestjs/common';
 

@@ -1,4 +1,3 @@
-// src/presentation/controllers/agricultor.controller.ts
 import { AtualizarAgricultorUseCase } from '@Application/use-cases/agricultor/atualiza-agricultor.use-case';
 import { BuscarTodosAgricultoresUseCase } from '@Application/use-cases/agricultor/busca-agricultor.use-case';
 import { CriarAgricultorUseCase } from '@Application/use-cases/agricultor/cria-agricultor.use-case';

@@ -35,7 +35,7 @@ export class SafraRepositoryImplt implements SafraRepository {
     return result ? SafraMapper.toDomain(result) : null;
   }
 
-  async buscarTodos(): Promise<Safra[]> {
+  async buscar(): Promise<Safra[]> {
     const results = await this.ormRepo.find();
     return results.map((result) => SafraMapper.toDomain(result));
   }

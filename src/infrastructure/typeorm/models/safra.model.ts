@@ -11,6 +11,6 @@ export class SafraOrmEntity {
   @Column()
   fazendaId: string;
 
-  @Column('simple-array') // salva como string separada por vírgulas
+  @Column('simple-array')
   culturasIds: string[];
 }

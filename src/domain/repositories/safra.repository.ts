@@ -5,5 +5,5 @@ export interface SafraRepository {
   atualizar(safra: Safra): Promise<Safra>;
   remover(id: string): Promise<void>;
   buscarPorId(id: string): Promise<Safra | null>;
-  buscarTodos(): Promise<Safra[]>;
+  buscar(): Promise<Safra[]>;
 }
