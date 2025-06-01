@@ -1,5 +1,6 @@
-import { EntityRepository, Repository } from 'typeorm';
 import { Crop } from '../entities/crop.entity';
 
-@EntityRepository(Crop)
-export class CropRepository extends Repository<Crop> {}
+export interface ICropRepository {
+  create(crop: Crop): Promise<Crop>;
+  findById(id: string): Promise<Crop | null>;
+}
