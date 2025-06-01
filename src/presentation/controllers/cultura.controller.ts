@@ -11,8 +11,10 @@ import {
   Post,
   Put,
 } from '@nestjs/common';
+import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { Cultura } from '../../domain/entities/cultura.entity';
 
+@ApiTags('culturas')
 @Controller('culturas')
 export class CulturaController {
   constructor(
@@ -23,21 +25,29 @@ export class CulturaController {
   ) {}
 
   @Post()
+  @ApiOperation({ summary: 'Criar uma cultura' })
+  @ApiResponse({ status: 200, description: 'Cultura criado com sucesso.' })
   async criar(@Body() dto: Cultura): Promise<Cultura> {
     return this.criarUseCase.execute(dto);
   }
 
   @Put()
+  @ApiOperation({ summary: 'Atualizar uma cultura' })
+  @ApiResponse({ status: 200, description: 'Cultura atualizado com sucesso.' })
   async atualizar(@Body() dto: Cultura): Promise<Cultura> {
     return this.atualizarUseCase.execute(dto);
   }
 
   @Delete(':id')
+  @ApiOperation({ summary: 'Remover uma cultura' })
+  @ApiResponse({ status: 200, description: 'Cultura removido com sucesso.' })
   async remover(@Param('id') id: string): Promise<void> {
     return this.removerUseCase.execute(id);
   }
 
   @Get()
+  @ApiOperation({ summary: 'Listar todas as culturas' })
+  @ApiResponse({ status: 200, description: 'Culturas listadas com sucesso.' })
   async buscarTodas(): Promise<Cultura[]> {
     return this.buscarTodasUseCase.execute();
   }
