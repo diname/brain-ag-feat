@@ -1,9 +1,11 @@
 import { SafraRepository } from '@Domain/repositories/safra.repository';
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 
 @Injectable()
 export class RemoverSafraUseCase {
-  constructor(private readonly repo: SafraRepository) {}
+  constructor(
+    @Inject('SafraRepository') private readonly repo: SafraRepository,
+  ) {}
 
   async execute(id: string): Promise<void> {
     await this.repo.remover(id);

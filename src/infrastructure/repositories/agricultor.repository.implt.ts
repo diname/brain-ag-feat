@@ -14,9 +14,6 @@ export class AgricultorRepositoryImplt implements AgricultorRepository {
     @InjectRepository(AgricultorOrmEntity)
     private readonly ormRepo: Repository<AgricultorOrmEntity>,
   ) {}
-  buscarTodos(): Promise<Agricultor[]> {
-    throw new Error('Method not implemented.');
-  }
 
   async criar(agricultor: Agricultor): Promise<Agricultor> {
     const ormEntity = AgricultorMapper.toOrm(agricultor);

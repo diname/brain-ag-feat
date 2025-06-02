@@ -34,6 +34,7 @@ export class EnvironmentVariableService {
     user: string;
     password: string;
     database: string;
+    ssl: boolean;
   } {
     return {
       port: this.configService.get<number>('POSTGRES_PORT'),
@@ -41,6 +42,10 @@ export class EnvironmentVariableService {
       user: this.configService.get<string>('POSTGRES_USER'),
       password: this.configService.get<string>('POSTGRES_PASSWORD'),
       database: this.configService.get<string>('POSTGRES_DB'),
+      ssl:
+        this.configService.get<string>('POSTGRES_SSL') === 'true'
+          ? true
+          : false,
     };
   }
 }

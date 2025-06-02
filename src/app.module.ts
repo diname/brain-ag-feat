@@ -86,6 +86,22 @@ import { SafraController } from './presentation/controllers/safra.controller';
     AtualizarSafraUseCase,
     RemoverSafraUseCase,
     BuscarTodasSafrasUseCase,
+    {
+      provide: 'AgricultorRepository',
+      useClass: AgricultorRepositoryImplt,
+    },
+    {
+      provide: 'FazendaRepository',
+      useClass: FazendaRepositoryImplt,
+    },
+    {
+      provide: 'CulturaRepository',
+      useClass: CulturaRepositoryImplt,
+    },
+    {
+      provide: 'SafraRepository',
+      useClass: SafraRepositoryImplt,
+    },
   ],
 })
 export class AppModule {}

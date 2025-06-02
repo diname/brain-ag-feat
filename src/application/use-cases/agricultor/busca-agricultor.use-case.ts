@@ -1,10 +1,13 @@
 import { Agricultor } from '@Domain/entities/agricultor.entity';
 import { AgricultorRepository } from '@Domain/repositories/agricultor.repository';
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 
 @Injectable()
 export class BuscarTodosAgricultoresUseCase {
-  constructor(private readonly repo: AgricultorRepository) {}
+  constructor(
+    @Inject('AgricultorRepository')
+    private readonly repo: AgricultorRepository,
+  ) {}
 
   async execute(): Promise<Agricultor[]> {
     return await this.repo.buscar();
